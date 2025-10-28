@@ -27,13 +27,10 @@
             <strong>Edad:</strong> {{ gato.edad }} años
           </p>
           <div class="btn-group w-100">
-            <button class="btn btn-outline-primary btn-sm">
+            <button class="btn btn-outline-primary btn-sm" [routerLink]="['/gatos/editar', gato.id]">
               ✏️ Editar
             </button>
-            <button 
-              class="btn btn-outline-danger btn-sm"
-              (click)="eliminarGato(gato.id!)"
-            >
+            <button class="btn btn-outline-danger btn-sm" (click)="eliminarGato(gato.id!)">
               🗑️ Eliminar
             </button>
           </div>
