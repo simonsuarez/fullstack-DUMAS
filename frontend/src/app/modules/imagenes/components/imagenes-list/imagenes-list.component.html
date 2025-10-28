@@ -1,6 +1,7 @@
+<!-- frontend/src/app/modules/imagenes/components/imagenes-list/imagenes-list.component.html -->
 <div class="container mt-4">
   <h2>Imágenes de Gatos</h2>
-  <p>10 imágenes aleatorias de TheCatAPI</p>
+  <p>10 imágenes aleatorias de TheCatAPI - Haz click en el corazón para marcar como favorita</p>
   
   <div class="row">
     <div class="col-md-6 mb-3" *ngFor="let imagen of imagenes; let i = index">
@@ -11,12 +12,23 @@
           class="card-img-top"
           style="height: 200px; object-fit: cover;"
         >
-        <div class="card-body">
+        <div class="card-body text-center">
           <button 
-            class="btn btn-primary btn-sm"
-            (click)="marcarFavorito(imagen.id)"
+            class="btn btn-sm"
+            [class.btn-outline-secondary]="!esFavorito(imagen.id)"
+            [class.btn-danger]="esFavorito(imagen.id)"
+            [class.btn-success]="estaCargando(imagen.id)"
+            [disabled]="estaCargando(imagen.id) || esFavorito(imagen.id)"
+            (click)="marcarFavorito(imagen)"
           >
-            ❤️ Marcar Favorito
+            <span *ngIf="estaCargando(imagen.id)">⏳</span>
+            <span *ngIf="!estaCargando(imagen.id)">
+              {{ esFavorito(imagen.id) ? '❤️' : '🤍' }}
+            </span>
+            {{ 
+              estaCargando(imagen.id) ? 'Guardando...' : 
+              esFavorito(imagen.id) ? 'Favorita' : 'Marcar Favorito'
+            }}
           </button>
         </div>
       </div>

@@ -5,10 +5,11 @@ import { ImagenesRoutingModule } from './imagenes-routing.module';
 import { ImagenesListComponent } from './components/imagenes-list/imagenes-list.component';
 
 @NgModule({
-  declarations: [ImagenesListComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    ImagenesRoutingModule
+    ImagenesRoutingModule,
+    ImagenesListComponent
   ]
 })
 export class ImagenesModule { }
