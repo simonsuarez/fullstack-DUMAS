@@ -53,12 +53,6 @@ export const environment = {
 ```bash
 # Ejecutar PostgreSQL en contenedor Docker
 docker run --name postgreSQL -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=admin12345 -p 5432:5432 -d postgres:17.6
-
-# Acceder al contenedor y crear la base de datos
-docker exec -it postgreSQL psql -U postgres -c "CREATE DATABASE gatos_db;"
-
-# Verificar que la base de datos fue creada
-docker exec -it postgreSQL psql -U postgres -c "\l"
 ```
 
 La tabla gatos se crea automáticamente al iniciar el backend gracias a SQLAlchemy. El modelo incluye:
@@ -71,7 +65,7 @@ foto (String - URL de TheCatAPI)
 Credenciales de BD
 
 Host: localhost:5432
-Database: gatos_db
+Database: postgres
 Username: postgres
 Password: admin12345
 
@@ -117,13 +111,17 @@ Módulo Imágenes
 Ver 10 imágenes aleatorias de gatos
 Marcar imágenes como favoritas (❤️)
 Los favoritos se almacenan en TheCatAPI
+
+
 Módulo Gatos
 
-Listar todos los gatos registrados
-Crear nuevos registros de gatos
-Editar información existente
-Eliminar registros
-Seleccionar fotos desde favoritos
+-Listar todos los gatos registrados
+-Crear nuevos registros de gatos
+-Editar información existente
+-Eliminar registros
+-Seleccionar fotos desde favoritos
+
+
 🔗 Endpoints del Backend
 
 Imágenes
