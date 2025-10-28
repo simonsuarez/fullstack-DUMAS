@@ -46,7 +46,7 @@ export const environment = {
   production: false,
   catApiKey: 'tu_api_key_theCatAPI'
 };
-
+```
 ## 🗄️ Configuración de Base de Datos
 
 ## PostgreSQL con Docker
@@ -100,12 +100,15 @@ Frontend: http://localhost:4200
 Backend API: http://localhost:8000
 Documentación API: http://localhost:8000/docs
 
+
 📁 Estructura del Proyecto
+```
 fullstack-DUMAS/
 ├── backend/           # API FastAPI
 ├── frontend/          # App Angular
 ├── README.md         # Este archivo
 └── requirements.txt  # Dependencias Python
+```
 
 🎯 Funcionalidades Principales
 
@@ -126,16 +129,22 @@ Seleccionar fotos desde favoritos
 Imágenes
 
 GET /imagenes - 10 imágenes aleatorias
+
 POST /imagenes/favoritos - Marcar favorito
+
 GET /imagenes/favoritos - Listar favoritos
 
 
 Gatos
 
 GET /gatos - Listar todos
+
 GET /gatos/{id} - Obtener por ID
+
 POST /gatos - Crear nuevo
+
 PUT /gatos/{id} - Actualizar
+
 DELETE /gatos/{id} - Eliminar
 
 
