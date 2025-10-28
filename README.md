@@ -37,9 +37,19 @@ Una aplicación fullstack para gestionar imágenes de gatos y registros felinos,
 
 ## 📦 Instalación y Ejecución
 
+## 🔐 Configuración de API Key
+
+1. Regístrate en [TheCatAPI](https://thecatapi.com/) para obtener una API key gratis
+2. Crea `src/environments/environment.ts`:
+```typescript
+export const environment = {
+  production: false,
+  catApiKey: 'tu_api_key_theCatAPI'
+};
+
 ## 🗄️ Configuración de Base de Datos
 
-### PostgreSQL con Docker
+## PostgreSQL con Docker
 ```bash
 # Ejecutar PostgreSQL en contenedor Docker
 docker run --name postgreSQL -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=admin12345 -p 5432:5432 -d postgres:17.6
@@ -49,7 +59,7 @@ docker exec -it postgreSQL psql -U postgres -c "CREATE DATABASE gatos_db;"
 
 # Verificar que la base de datos fue creada
 docker exec -it postgreSQL psql -U postgres -c "\l"
-
+```
 
 La tabla gatos se crea automáticamente al iniciar el backend gracias a SQLAlchemy. El modelo incluye:
 
@@ -75,14 +85,14 @@ Password: admin12345
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-
+```
 
 ### Frontend
 ```bash
 cd frontend
 npm install
 ng serve
-
+```
 
 🌐 URLs de la Aplicación
 
@@ -134,3 +144,4 @@ DELETE /gatos/{id} - Eliminar
 Simon Suarez Ovalle - GitHub
 
 Desarrollado como prueba técnica para posición Full Stack Developer
+
