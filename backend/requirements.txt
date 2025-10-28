@@ -1,8 +1,10 @@
-# backend/requirements.txt
-fastapi==0.104.1
-uvicorn==0.24.0
-sqlalchemy==2.0.23
-psycopg2-binary==2.9.9
-aiohttp==3.9.1
+aiohttp==3.13.1
+anyio==4.11.0
+fastapi==0.120.0
+psycopg2-binary==2.9.11
+pydantic==2.12.3
+pydantic-core==2.41.4
 python-multipart==0.0.6
-pydantic==2.5.0
+SQLAlchemy==2.0.44
+starlette==0.48.0
+uvicorn==0.38.0
