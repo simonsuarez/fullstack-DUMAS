@@ -106,3 +106,60 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Botón para abrir modal de fotos -->
+<div class="mb-3">
+  <button 
+    type="button" 
+    class="btn btn-outline-info"
+    (click)="abrirModalFotos()"
+  >
+    📸 Seleccionar Foto de Favoritos
+  </button>
+</div>
+
+<!-- Modal para seleccionar fotos -->
+<div *ngIf="mostrarModalFotos" class="modal show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5)">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Seleccionar Foto de Favoritos</h5>
+        <button type="button" class="btn-close" (click)="cerrarModalFotos()"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="imagenesFavoritas.length === 0" class="alert alert-info">
+          No hay imágenes favoritas. Marca algunas imágenes como favoritas en el módulo de imágenes.
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4 mb-3" *ngFor="let imagen of imagenesFavoritas">
+            <div class="card h-100">
+              <img 
+                [src]="imagen.url" 
+                [alt]="'Imagen ' + imagen.id"
+                class="card-img-top"
+                style="height: 150px; object-fit: cover; cursor: pointer;"
+                (click)="seleccionarFoto(imagen.url)"
+              >
+              <div class="card-body text-center">
+                <button 
+                  class="btn btn-primary btn-sm"
+                  (click)="seleccionarFoto(imagen.url)"
+                >
+                  Seleccionar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModalFotos()">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
