@@ -3,14 +3,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Imagen, FavoritoRequest } from '../../models/imagenes/imagen.model';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ImagenesService {
   private apiUrl = 'http://localhost:8000/imagenes';
   private catApiUrl = 'https://api.thecatapi.com/v1';
-  private apiKey = 'live_WDRQdQ0FOBqVCs07tlHveeLLu6GJGCekuXvbLBNtWymahUGYniFzLksnAHJfZBYu'
+  private apiKey = environment.catApiKey;
 
   constructor(private http: HttpClient) { }
 
